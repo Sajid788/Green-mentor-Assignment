@@ -2,6 +2,7 @@ const express = require("express");
 const { connection, PORT } = require("./config/db");
 const userController = require('./controller/user.controller')
 const taskController = require('./controller/task.controller')
+const authorization= require('./midleware/authorization')
 
 const app = express();
 app.use(express.json());
@@ -11,6 +12,7 @@ app.get("/", (req, res) => {
 });
 
 app.use('/user',userController)
+app.use(authorization)
 app.use('/task',taskController)
 
 app.listen(PORT, async () => {
