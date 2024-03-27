@@ -4,9 +4,9 @@ const noteSchema = new mongoose.Schema({
   title: { type: String, required: true },
   description: { type: String, required: true },
   status: {type: String,enum: ["Pending", "InProgress", "Completed"],default: "Pending",},
-  createrId: { type: mongoose.Types.ObjectId, required: true },
+  createrId: { type: mongoose.Types.ObjectId, },
 });
 
-const TaskeModel = mongoose.model("Notes", noteSchema);
+const TaskModel = mongoose.model("Tasks", noteSchema);
 
-module.exports = TaskeModel;
+module.exports = TaskModel;
