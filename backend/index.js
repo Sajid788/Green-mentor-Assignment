@@ -1,14 +1,19 @@
-const express = require('express')
+const express = require("express");
+const { connection, PORT } = require("./config/db");
 
-const app = express()
-app.use(express.json())
+const app = express();
+app.use(express.json());
 
-app.get('/', (req,res)=>{
-    res.send({msg:"API Running!"})
-})
+app.get("/", (req, res) => {
+  res.send({ msg: "API Running!" });
+});
 
-const PORT = 8080;
-
-app.listen(PORT, async ()=>{
-    console.log(`Listening on PORT: ${PORT}`)
-})
+app.listen(PORT, async () => {
+  try {
+    await connection;
+    console.log("Connected to db");
+  } catch (error) {
+    console.log(`${error} is giving while connecting`);
+  }
+  console.log(`Listening on PORT: ${PORT}`);
+});
