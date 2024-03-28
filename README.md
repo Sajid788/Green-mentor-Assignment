@@ -26,10 +26,10 @@
 -   Bcrypt
 
   # API Endpoint
-`POST `    /user/signup
-`POST`     /user/login
-`GET  `    /task/
-`POST`     /task/create
-`DELETE`   /task/edit/:id
-`PATCH`    /task/edit/:id
-- I have also implement filter and pagination also
+- `POST `    /user/signup
+- `POST`     /user/login
+- `GET  `    /task/
+- `POST`     /task/create
+- `DELETE`   /task/edit/:id
+- `PATCH`    /task/edit/:id
+- - I have also implement filter and pagination also
