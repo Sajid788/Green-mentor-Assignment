@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import Signup from "./Pages/Signup";
 import Login from "./Pages/Login";
+import Home from "./Pages/Home";
 function App() {
   const authState = useSelector(state => state.authReducer);
   const dispatch = useDispatch();
@@ -16,7 +17,7 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-       
+        <Route path="/" element={<Home />} />
           <Route path="/signup" element={authState.isLoggedIn ? <Navigate to="/" /> : <Signup />} />
           <Route path="/login" element={<Login/>} />
         </Routes>
